@@ -1,0 +1,47 @@
+﻿<Window x:Class="RecipeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe App" Height="450" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10">
+            <TextBlock Text="Recipe Name:" />
+            <TextBox x:Name="recipeNameTextBox" Height="24" />
+            <TextBlock Text="Ingredients:" />
+            <StackPanel x:Name="ingredientStackPanel" />
+            <Button Content="Add Ingredient" Click="addIngredientButton_Click" Height="32" />
+            <TextBlock Text="Steps:" />
+            <StackPanel x:Name="stepStackPanel" />
+            <Button Content="Add Step" Click="addStepButton_Click" Height="32" />
+            <Button Content="Add Recipe" Click="addRecipeButton_Click" Height="40" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Ingredient Name Filter:" VerticalAlignment="Center" />
+            <TextBox x:Name="ingredientNameFilterTextBox" Width="120" VerticalAlignment="Center" />
+            <TextBlock Text="Food Group Filter:" Margin="10,0,0,0" VerticalAlignment="Center" />
+            <ComboBox x:Name="foodGroupFilterComboBox" Width="120" VerticalAlignment="Center">
+                <ComboBoxItem Content="Starchy foods" />
+                <ComboBoxItem Content="Vegetables and fruits" />
+                <ComboBoxItem Content="Dry beans, peas, lentils, and soya" />
+                <ComboBoxItem Content="Chicken, fish, meat, and eggs" />
+                <ComboBoxItem Content="Milk and dairy products" />
+                <ComboBoxItem Content="Fats and oil" />
+                <ComboBoxItem Content="Water" />
+            </ComboBox>
+            <TextBlock Text="Max Calories Filter:" Margin="10,0,0,0" VerticalAlignment="Center" />
+            <TextBox x:Name="maxCaloriesFilterTextBox" Width="60" VerticalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <Button x:Name="filterButton" Content="Filter" Click="filterButton_Click" />
+        </StackPanel>
+
+        <ListBox x:Name="allRecipesListBox" DisplayMemberPath="Name" Margin="10" Grid.Row="3" />
+    </Grid>
+</Window>
